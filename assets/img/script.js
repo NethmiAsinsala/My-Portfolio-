@@ -94,7 +94,7 @@ typeEffect();
    SCROLL REVEAL — Intersection Observer
    ============================================================ */
 const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
+  entries.forEach((entry) => {
     if (entry.isIntersecting) {
       // Stagger child cards
       entry.target.querySelectorAll(".skill-card, .project-card").forEach((card, idx) => {

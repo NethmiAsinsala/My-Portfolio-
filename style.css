@@ -507,6 +507,7 @@ body {
   padding: 36px 30px;
   border-radius: var(--radius);
   width: 280px;
+  max-width: 100%;
   text-align: center;
   transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
   backdrop-filter: blur(10px);
@@ -564,22 +565,28 @@ body {
    PROJECTS
    ============================================================ */
 .projects-grid {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
-  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  margin-top: 16px;
+  align-items: stretch;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .project-card {
   background: rgba(30, 41, 59, 0.55);
   border: 1px solid var(--card-border);
   border-radius: var(--radius);
-  width: 340px;
+  width: 100%;
   overflow: hidden;
   backdrop-filter: blur(10px);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   text-align: left;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .project-card:hover {
@@ -588,13 +595,39 @@ body {
 }
 
 .project-img {
-  height: 160px;
+  width: 100%;
+  height: 230px;
   background: var(--card-gradient);
+  position: relative;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
+}
+
+.project-img img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center top;
   position: relative;
-  overflow: hidden;
+  z-index: 1;
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-img img {
+  transform: scale(1.03);
+}
+
+/* Fallback icon shown when no img loads */
+.project-img .project-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
 }
 
 .project-img-overlay {
@@ -602,10 +635,11 @@ body {
   inset: 0;
   background: rgba(15,23,42,0.15);
   transition: background 0.3s;
+  z-index: 2;
 }
 
 .project-card:hover .project-img-overlay {
-  background: rgba(15,23,42,0.05);
+  background: rgba(15,23,42,0.04);
 }
 
 .project-icon {
@@ -617,10 +651,24 @@ body {
 }
 
 .project-card:hover .project-icon {
-  transform: scale(1.12) rotate(-5deg);
+  transform: translate(-50%, -50%) scale(1.12) rotate(-5deg);
 }
 
-.project-body { padding: 24px; }
+.project-body {
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.project-type {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent2);
+  margin-bottom: 6px;
+}
 
 .project-body h3 {
   font-size: 1.05rem;
@@ -634,6 +682,7 @@ body {
   font-size: 0.88rem;
   line-height: 1.6;
   margin-bottom: 16px;
+  flex: 1;
 }
 
 .project-tags {
@@ -772,7 +821,29 @@ footer span {
 /* ============================================================
    RESPONSIVE
    ============================================================ */
+
+/* Large desktop — constrain projects section width */
+@media (min-width: 1400px) {
+  .section { padding: 110px 120px; }
+}
+
+/* Medium desktop */
+@media (max-width: 1200px) {
+  .navbar { padding: 18px 40px; }
+  .navbar.scrolled { padding: 12px 40px; }
+  .section { padding: 100px 40px; }
+}
+
+/* Tablet landscape */
+@media (max-width: 1024px) {
+  .hero-content h1 { font-size: 2.4rem; }
+  .skills-grid { gap: 18px; }
+  .skill-card { width: 220px; }
+}
+
+/* Tablet portrait / large phones */
 @media (max-width: 768px) {
+  /* Navbar */
   .navbar { padding: 16px 24px; }
   .navbar.scrolled { padding: 12px 24px; }
 
@@ -781,23 +852,78 @@ footer span {
     flex-direction: column;
     gap: 20px;
     position: absolute;
-    top: 70px; right: 0;
+    top: 64px; right: 0;
     background: rgba(15, 23, 42, 0.98);
-    padding: 30px 30px;
-    width: 220px;
+    padding: 28px 32px;
+    width: 230px;
     border-radius: 0 0 0 16px;
     border-left: 1px solid var(--card-border);
     border-bottom: 1px solid var(--card-border);
     backdrop-filter: blur(14px);
+    z-index: 999;
   }
 
   .nav-links.open { display: flex; }
   .hamburger { display: flex; }
 
+  /* Hero */
   .section { padding: 80px 24px; }
-  .about-grid { flex-direction: column; text-align: center; }
+  .hero { padding: 100px 20px 70px; }
+  .hero-content h1 { font-size: 2rem; }
+  .hero-content h3 { font-size: 1.1rem; }
+  .hero-content p { font-size: 0.95rem; }
+  .profile-ring { width: 100px; height: 100px; }
+  .hero-stats { gap: 24px; }
+  .stat { font-size: 1.6rem; }
+
+  /* About */
+  .about-grid { flex-direction: column; text-align: center; gap: 40px; }
   .about-tags { justify-content: center; }
-  .hero-stats { gap: 30px; }
-  .project-card { width: 100%; max-width: 340px; }
-  .skill-card { width: 100%; max-width: 300px; }
+  .about-text { max-width: 100%; }
+
+  /* Skills */
+  .skills-grid { gap: 16px; }
+  .skill-card { width: calc(50% - 8px); min-width: 160px; }
+
+  /* Projects */
+  .projects-grid { grid-template-columns: 1fr; gap: 20px; max-width: 560px; }
+
+  /* Contact */
+  .contact-email { font-size: 0.9rem; padding: 12px 20px; }
+  .social-links { gap: 10px; }
+  .social-btn { padding: 10px 18px; font-size: 0.85rem; }
+}
+
+/* Small phones */
+@media (max-width: 576px) {
+  .navbar { padding: 14px 18px; }
+
+  .hero-content h1 { font-size: 1.75rem; }
+  .hero-content p { font-size: 0.9rem; }
+  .btn-primary, .btn-secondary { padding: 11px 20px; font-size: 0.88rem; }
+  .hero-stats { gap: 16px; flex-wrap: wrap; justify-content: center; }
+  .stat { font-size: 1.4rem; }
+
+  /* Skills: 1 column */
+  .skills-grid { flex-direction: column; align-items: center; }
+  .skill-card { width: 100%; max-width: 340px; }
+
+  /* Projects: 1 column */
+  .projects-grid { grid-template-columns: 1fr; }
+
+  /* About badge doesn't overflow */
+  .about-badge { font-size: 0.72rem; padding: 5px 10px; }
+
+  /* Section headings */
+  .section h2 { font-size: 1.5rem; }
+}
+
+/* Extra small phones */
+@media (max-width: 380px) {
+  .hero-content h1 { font-size: 1.5rem; }
+  .hero-buttons { flex-direction: column; align-items: center; }
+  .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+  .hero-stats { gap: 12px; }
+  .stat { font-size: 1.2rem; }
+  .logo { font-size: 1.3rem; }
 }
