@@ -1,99 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <title>Nethmi Asinsala | Full Stack Developer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-
 <body>
 
-    <!-- Splash Screen -->
-    <div id="splash">
-        <h1 class="fade-in">NETHMI ASINSALA</h1>
+<!-- Animated background blobs -->
+<div class="bg-blobs">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+</div>
+
+<header>
+  <nav class="navbar" id="navbar">
+    <h2 class="logo">Nethmi<span class="logo-dot">.</span></h2>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content reveal">
+    <div class="profile-ring">
+      <div class="profile-avatar">
+        <img src="assets/img/profile.jpeg" alt="Nethmi Asinsala" />
+      </div>
+    </div>
+    <h1>Hi, I'm <span>Nethmi Asinsala</span></h1>
+    <h3><span id="typing"></span><span class="cursor">|</span></h3>
+    <p>
+      Passionate Full-Stack Developer building scalable and modern web applications.
+    </p>
+    <div class="hero-buttons">
+      <a href="#projects" class="btn-primary"><i class="fas fa-eye"></i> View My Work</a>
+      <a href="cv.pdf" download class="btn-secondary"><i class="fas fa-download"></i> Download CV</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="count" data-target="3">0</span>+<p>Projects</p></div>
+      <div class="stat"><span class="count" data-target="2">0</span>+<p>Years Learning</p></div>
+      <div class="stat"><span class="count" data-target="5">0</span>+<p>Technologies</p></div>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <span></span>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section reveal">
+  <div class="about-grid">
+    <div class="about-image-wrap">
+      <div class="about-image">
+        <div class="about-avatar">
+          <img src="assets/img/profile.jpeg" alt="Nethmi Asinsala" />
+        </div>
+      </div>
+      <div class="about-badge"><i class="fas fa-circle-check"></i> Open to Work</div>
+    </div>
+    <div class="about-text">
+      <h2>About <span>Me</span></h2>
+      <p>
+        I am a BIT undergraduate with strong backend expertise in Spring Boot and REST API development.
+        I focus on writing clean, maintainable code and building professional-grade full-stack systems.
+        My goal is to grow as a software engineer while solving real-world problems.
+      </p>
+      <div class="about-tags">
+        <span><i class="fas fa-graduation-cap"></i> BIT Undergraduate</span>
+        <span><i class="fas fa-map-marker-alt"></i> Sri Lanka</span>
+        <span><i class="fas fa-briefcase"></i> Available for Hire</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="section dark reveal">
+  <h2>Technical <span>Skills</span></h2>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-icon"><i class="fas fa-code"></i></div>
+      <h3>Programming Languages</h3>
+      <div class="skill-tags">
+        <span>Java</span><span>JavaScript</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon"><i class="fas fa-cubes"></i></div>
+      <h3>Frameworks & Libraries</h3>
+      <div class="skill-tags">
+        <span>Angular</span><span>Spring Boot</span><span>React</span><span>Bootstrap</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon"><i class="fas fa-laptop-code"></i></div>
+      <h3>Web Technologies</h3>
+      <div class="skill-tags">
+        <span>HTML5</span><span>CSS3</span><span>Tailwind CSS</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon"><i class="fas fa-screwdriver-wrench"></i></div>
+      <h3>Tools & Platforms</h3>
+      <div class="skill-tags">
+        <span>Git</span><span>GitHub</span><span>Rest APIs</span><span>Atlassian Jira</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon"><i class="fas fa-fire"></i></div>
+      <h3>Back-End Services</h3>
+      <div class="skill-tags">
+        <span>Firebase</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon"><i class="fas fa-database"></i></div>
+      <h3>Databases</h3>
+      <div class="skill-tags">
+        <span>MySQL</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="section reveal">
+  <h2>Featured <span>Projects</span></h2>
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <div class="project-img" style="--card-gradient: linear-gradient(135deg,#667eea,#764ba2);">
+        <i class="fas fa-hospital-alt project-icon"></i>
+        <div class="project-img-overlay"></div>
+      </div>
+      <div class="project-body">
+        <h3>Medicare Clinic System</h3>
+        <p>Full-stack clinic management system with appointment scheduling and automated email notifications.</p>
+        <div class="project-tags">
+          <span>Spring Boot</span><span>React</span><span>MySQL</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/NethmiAsinsala" target="_blank"><i class="fab fa-github"></i> Code</a>
+          <a href="#" class="live-link"><i class="fas fa-external-link-alt"></i> Live</a>
+        </div>
+      </div>
     </div>
 
-    <!-- Main Content -->
-    <div id="main-content" class="hidden">
-
-        <header>
-            <div class="profile-container">
-                <nav>
-                    <ul id="link">
-                        <li><a href="#about">ABOUT</a></li>
-                        <li><a href="#projects">PROJECTS</a></li>
-                        <li><a href="#contact">CONTACTS</a></li>
-                    </ul>
-                </nav><br>
-                <img src="assets/img/profile.jpg" alt="Profile Photo" class="profile-img">
-                <h1>SOFTWARE ENGINEER</h1>
-                <h3>NETHMI ASINSALA GUNARATHNA</h3>
-                <p>A motivated software engineering student with a love for turning ideas into reality through
-                    code.Dedicated to continuous learning and creating meaningful digital experiences</p>
-            </div>
-        </header>
-
-        <section id="about">
-            <h2 id="heading2">ABOUT ME</h2>
-            <p id="about-p">I am Nethmi Asinsala, an aspiring software engineer with a strong interest in technology and
-                innovation.
-                I am passionate about developing efficient, reliable, and user-focused software solutions.
-                My goal is to continuously enhance my technical skills and contribute meaningfully to the IT industry.
-            </p>
-        </section>
-
-        <section id="projects">
-            <h2 id="heading2">MY PROJECTS</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <img src="assets/img/school.jpg" alt="Project 1">
-                    <h3 id="h3">School Website</h3><br>
-                    <p>My personal responsive website using HTML & CSS.</p>
-                </div>
-                <div class="project-card">
-                    <img src="assets/img/BurgerShop.jpg" alt="Project 2">
-                    <h3 id="h3">Online Burger Shop</h3><br>
-                    <p>A simple ordering system using Java and MVC architecture.</p>
-                </div>
-                <div class="project-card">
-                    <img src="assets/img/DayFinder.jpg" alt="Project 2">
-                    <h3 id="h3">Day Finder</h3><br>
-                    <p>Simple option for find date using HTML, CSS & Java Script.</p>
-                </div>
-            </div>
-        </section>
-
-        <footer>
-            <h2 id="contact">CONTACT ME</h2>
-            <div class="social-icons">
-                <a id="email" href="https://www.nethmig2001@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
-                <a id="linkedin" href="https://www.linkedin.com/in/nethmi-asinsala-gunarathna-4a5b5428b" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                <a id="github" href="https://github.com/NethmiAsinsala" target="_blank"><i class="fab fa-github"></i></a>
-            </div>
-            <p>© 2025 Nethmi Asinsala. All Rights Reserved.</p>
-        </footer>
-
+    <div class="project-card">
+      <div class="project-img" style="--card-gradient: linear-gradient(135deg,#f093fb,#f5576c);">
+        <i class="fas fa-triangle-exclamation project-icon"></i>
+        <div class="project-img-overlay"></div>
+      </div>
+      <div class="project-body">
+        <h3>Emergency Reporting Web App</h3>
+        <p>Real-time emergency alert platform with GPS tracking and Firebase integration.</p>
+        <div class="project-tags">
+          <span>Firebase</span><span>JavaScript</span><span>GPS API</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/NethmiAsinsala" target="_blank"><i class="fab fa-github"></i> Code</a>
+          <a href="#" class="live-link"><i class="fas fa-external-link-alt"></i> Live</a>
+        </div>
+      </div>
     </div>
 
-    <script>
-        // Splash Screen Logic
-        window.addEventListener("load", () => {
-            const splash = document.getElementById("splash");
-            const main = document.getElementById("main-content");
+  </div>
+</section>
 
-            setTimeout(() => {
-                splash.classList.add("fade-out");
-                setTimeout(() => {
-                    splash.style.display = "none";
-                    main.classList.remove("hidden");
-                }, 1000);
-            }, 2500); // 2.5 seconds splash delay
-        });
-    </script>
+<!-- CONTACT -->
+<section id="contact" class="section dark reveal">
+  <h2>Let's <span>Connect</span></h2>
+  <p class="contact-sub">I'm always open to new opportunities and collaborations.</p>
+  <a href="mailto:nethmiasinsala87@gmail.com" class="contact-email">
+    <i class="fas fa-envelope"></i> nethmiasinsala87@gmail.com
+  </a>
+  <div class="social-links">
+    <a href="https://github.com/NethmiAsinsala" target="_blank" class="social-btn">
+      <i class="fab fa-github"></i> GitHub
+    </a>
+    <a href="#" class="social-btn">
+      <i class="fab fa-linkedin"></i> LinkedIn
+    </a>
+    
+  </div>
+</section>
 
+<footer>
+  <p>Designed &amp; Built by <span>Nethmi Asinsala</span> &mdash; &copy; 2026</p>
+</footer>
+
+<script src="assets/img/script.js"></script>
 </body>
-
 </html>
