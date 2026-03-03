@@ -182,7 +182,6 @@ body {
   border-radius: 50%;
   padding: 4px;
   background: conic-gradient(var(--accent), var(--accent2), #f472b6, var(--accent));
-  animation: spin 5s linear infinite;
   position: relative;
 }
 
